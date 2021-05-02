@@ -1,0 +1,38 @@
+<section>
+
+    <h3 class="post-header">Create New Post</h3>
+
+<form>
+
+<div class="mb-3">
+    <label for="title" class="title-label">Title</label>
+    <input type="text" class="post-title" name="post-title" placeholder="Title">
+</div>
+
+<div class="mb-3">
+    <label for="content" class="content-label">Post Content</label>
+    <input type="text" class="post-content" name="post-content" placeholder="Type here">
+</div>
+
+<button type="submit" class="btn btn-primary" id="newpost-btn">New Post</button>
+
+</form>
+</section>
+
+{{#if posts.length }}
+
+<h1>Posts</h1>
+<section>
+    {{#each posts as |post|}}
+
+    {{#> post-info post }}
+
+    <a href="/dashboard/edit/{{post.id}}">Edit Post</a> 
+    
+    {{/each}}
+
+    {{else}}
+    <h4>You do not have any post</h4>
+</section>
+
+{{/if}}

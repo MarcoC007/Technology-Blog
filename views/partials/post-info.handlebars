@@ -1,0 +1,16 @@
+<section class="card">
+   <a href="/post/{{id}}"></a>
+   <div class="card-header">
+       <h5 class="card-title">{{title}}</h5>
+  </div>
+  <div class="card-body">
+      <div class="content">
+          {{content}}
+      </div>
+      <p>Posted by: {{user.username}}</p>
+  </div>
+  <div class="card-footer text-muted">
+      on {{format_date created_at}}
+      <a href="/post/{{id}}">{{ comments.length }}{{ format_plural 'comment' comments.length }}<label></label></a>
+  </div>
+</section>

@@ -1,0 +1,35 @@
+<article>
+    <a href="/dashboard" class="dashboard-link"><label>Dashboard</label></a>
+
+    <h2>Edit Post:</h2>
+    
+    <form class="edit-post-form">
+     
+    <div class="mb-3">
+        <label for="title" class="edit-title-label">Title</label>
+        <input type="text" class="edit-post-title" name="edit-post-title" placeholder="Title">
+    </div>
+
+    <div class="mb-3">
+        <label for="content" class="edit-content-label">Post Content</label>
+        <input type="text" class="edit-post-content" name="edit-post-content" placeholder="Type your post">
+    </div>
+    
+    <div class="edit-date-msg">
+    Created by {{user.username}} on {{format_date create_at}}
+    |
+    <a href="/post/{{post.id}}">{{ post.comments.length }} {{plural 'comment' post.comments.length }}</a>
+    </div>
+
+    <button type="submit" class="btn is-success" id="edit-post-button">Save</button>
+
+    <button type="button" class="btn is-danger" id="edit-post-delete">Delete</button>
+    </form>
+
+</article>
+
+{{> comments post.comments }}
+
+<script src="/public/js/edit-post.js"></script>
+<script src="/public/js/comments.js"></script>
+<script src="/public/js/delete-post.js"></script>
