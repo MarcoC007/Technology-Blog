@@ -2,7 +2,7 @@
 
     <h3 class="post-header">Create New Post</h3>
 
-<form>
+<form class="new-post-form">
 
 <div class="mb-3">
     <label for="title" class="title-label">Title</label>
@@ -11,7 +11,7 @@
 
 <div class="mb-3">
     <label for="content" class="content-label">Post Content</label>
-    <input type="text" class="post-content" name="post-content" placeholder="Type here">
+    <input type="text" class="post-content" name="post-content" placeholder="Type your post">
 </div>
 
 <button type="submit" class="btn btn-primary" id="newpost-btn">New Post</button>
@@ -36,3 +36,5 @@
 </section>
 
 {{/if}}
+
+<script src="/public/js/add-post.js"></script>

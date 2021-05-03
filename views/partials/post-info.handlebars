@@ -1,16 +1,16 @@
 <section class="card">
    <a href="/post/{{id}}"></a>
    <div class="card-header">
-       <h5 class="card-title">{{title}}</h5>
+       <h5 class="card-title" id="new-post-title">{{title}}</h5>
   </div>
   <div class="card-body">
-      <div class="content">
-          {{content}}
+      <div class="new-post-content">
+          {{post.content}}
       </div>
-      <p>Posted by: {{user.username}}</p>
+      <p>Posted by: {{user.name}}</p>
   </div>
   <div class="card-footer text-muted">
       on {{format_date created_at}}
-      <a href="/post/{{id}}">{{ comments.length }}{{ format_plural 'comment' comments.length }}<label></label></a>
+      <a href="/post/{{id}}">{{ comments.length }}{{ plural 'comment' comments.length }}<label></label></a>
   </div>
 </section>
