@@ -3,7 +3,7 @@ const { Comment } = require('../../models');
 const withAuth = require('../../utils/Auth');
 
 // Getting all comments
-router.get('/' , (req, res) => {
+router.get('/' , async (req, res) => {
    
     try {
         const allComments = await Comment.findAll({});

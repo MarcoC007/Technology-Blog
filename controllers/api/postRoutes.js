@@ -1,11 +1,16 @@
 const router = require('express').Router();
 const { Post, Comment, User } = require('../../models');
+const withAuth = require('../../utils/Auth');
 
 // find all posts and comments 
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
     try {
         const posts = await Post.findAll({
-            atributes: [ id, title, post_content, created_at],
+            atributes: [
+                'id', 
+                'title', 
+                'content', 
+                'created_at'],
             order: [
                 ['created_at', 'DESC']
             ],
@@ -16,7 +21,12 @@ router.get('/', (req, res) => {
             },
             {
                 model: Comment,
-                atributes: [ id, comment_text, post_id, user_id, created_at],
+                atributes: [ 'id', 
+                'comment_text',
+                 'post_id',
+                  'user_id',
+                   'created_at'
+                ],
                 include: [
                     {
                         model: User,
@@ -40,7 +50,10 @@ router.get('/:id', async (req, res) => {
                 id: req.params.id
             },
             atributes: [
-                id, title, post_content, created_at
+                'id', 
+                'title', 
+                'content', 
+                'created_at'
             ],
             include: [
                 {
@@ -51,7 +64,12 @@ router.get('/:id', async (req, res) => {
             include: [
                 {
                     model: Comment,
-                    atributes: [id, comment_text, post_id, user_id, created_at ],
+                    atributes: [
+                        'id', 
+                        'comment_text', 
+                        'post_id', 
+                        'user_id', 
+                        'created_at' ],
                     include: [ 
                         {
                             model: User,
